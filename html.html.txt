@@ -1,0 +1,250 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset="UTF-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<title>Interactive Page</title> 
+<style> 
+body { 
+    margin:0; 
+    padding:0; 
+    font-family: Arial, sans-serif; 
+    height:100vh; 
+    width:100vw; 
+    overflow:hidden; 
+    background: url('https://i.pinimg.com/736x/81/44/5c/81445cec46a4c6980a32c8a75fe76a90.jpg') no-repeat center center; 
+    background-size: cover; 
+    transition: background 0.5s ease-in-out; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: flex-end; 
+    align-items: center; 
+} 
+.overlay { 
+    text-align:center; 
+    color:white; 
+    width:90%; 
+    max-width:500px; 
+    margin-bottom: 20px; 
+} 
+h1 { 
+    color:lightblue; 
+    text-shadow:2px 2px 4px rgba(0,0,0,0.5);
+} 
+.heart { 
+    display:inline-block; 
+    animation: beat 1s infinite; 
+    transform-origin: center; 
+} 
+@keyframes beat { 
+    0%,100%{transform:scale(1);} 
+    25%{transform:scale(1.3);} 
+    50%{transform:scale(1);} 
+    75%{transform:scale(1.3);} 
+} 
+.message { 
+    margin-bottom:10px; 
+    font-size:16px; 
+    color:orange; 
+    text-shadow:1px 1px 3px rgba(0,0,0,0.5);
+} 
+input[type="text"] { 
+    padding:10px; 
+    font-size:16px; 
+    border:none; 
+    border-radius:5px; 
+    width:100%; 
+    display:block; 
+    margin:0 auto 10px auto; 
+    color:orange; 
+} 
+input::placeholder { 
+    color:orange; 
+    opacity:1; 
+} 
+button { 
+    padding:10px 20px; 
+    font-size:16px; 
+    background-color:black; 
+    color:white; 
+    border:none; 
+    border-radius:5px; 
+    cursor:pointer; 
+    display:block; 
+    margin:10px auto; 
+} 
+button:hover { 
+    background-color:#333; 
+} 
+#greeting, #secondMessage, #bfForm, #extraPage { 
+    display:none; 
+    margin-top:20px; 
+    text-align:center; 
+} 
+#thirdText { 
+    display:none; 
+    margin-top:20px; 
+    padding:15px; 
+    background-color: rgba(0,0,0,0.5); 
+    border-radius:10px; 
+    max-height: 60vh; 
+    overflow-y: auto; 
+    font-size:14px; 
+    text-align:left; 
+    color:orange; 
+    line-height:1.5; 
+} 
+#thumbsButtons { 
+    display:none; 
+    margin-top:15px; 
+    text-align:center; 
+} 
+#thumbsButtons button { 
+    margin:0 10px; 
+    font-size:20px; 
+    cursor:pointer; 
+} 
+@media (max-width:480px){ 
+    h1 { 
+        font-size:18px; 
+    } 
+    input, button { 
+        font-size:14px; 
+        padding:8px; 
+    } 
+    img { 
+        width:150px; 
+    } 
+    #thirdText { 
+        font-size:12px; 
+        max-height:50vh; 
+    } 
+    #thumbsButtons button { 
+        font-size:18px; 
+    } 
+} 
+</style> 
+</head> 
+<body> 
+<div class="overlay"> 
+    <h1 id="helloText">Hey Beautiful <span class="heart">❤️</span></h1> 
+    
+    <!-- First Page Form --> 
+    <form id="nameForm"> 
+        <input type="text" id="name" name="name" placeholder="Your name here"><br> 
+        <div class="message">I want to tell you something about you and me</div><br> 
+        <button type="submit">Submit</button> 
+    </form> 
+
+    <!-- Second Page --> 
+    <h1 id="greeting"></h1> 
+    <h1 id="secondMessage"></h1> 
+    <form id="bfForm"> 
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfCmmeMR3fWuuiWMXDlTTVGK1udkTO9GAD_Q&s" style="display:block; margin:0 auto 10px; width:200px; height:auto;" alt="Boyfriend Image"> 
+        <input type="text" id="bfName" placeholder="Boyfriend's name"><br> 
+        <button type="submit">Submit</button> 
+    </form> 
+
+    <!-- Extra Page with Light Blue Background -->
+    <div id="extraPage">
+        <h1>Special Message for You!</h1>
+        <div class="message">This is your extra page with a beautiful light blue background</div>
+        <p>You and your boyfriend <span id="bfNameDisplay"></span> make a great couple!</p>
+        <button id="continueBtn">Continue to Final Message</button>
+    </div>
+
+    <!-- Third Page Text --> 
+    <div id="thirdText"> banda baa nin ge kaytidde kushi agbitte alva full ninu haa en nin du hossa hossa atta haa en status nin nidu peacefull ante shata peacefull tikka muchkondu irradu na kaali gotagtta nan ega change agtidini dina ke 2 time uta ondu ondu sala 1 time sari agi nidde madalla nin changiddiya gottu clg alli friends jothe yalla munde nu chanagirtiya gottu kushi agi irru nin kushi ge ne doora iraduu nan andre agalla alva nin ge nan ista illa alva bidu nan hengo saytini nin changirru uta tindi madu crt agi mm nin ge gottittu alva nam mane li nan na sari agi nodkolalla anta adru inge madde bidu parvagilla nane badkaddu kallitidini aytha ondu dina full uta madirilla aga yast kushi aythu andre yappa en helli bidu kushi agi irru peacefull agi chanagirtiya changirru nan na block madu ok na </div> 
+
+    <!-- Thumbs Buttons --> 
+    <div id="thumbsButtons"> 
+        <button id="btnUp">👍 Thumbs Up</button> 
+        <button id="btnDown">👎 Thumbs Down</button> 
+    </div> 
+</div> 
+
+<script> 
+let userName = ''; 
+let bfName = ''; 
+
+const nameForm = document.getElementById('nameForm'); 
+const greeting = document.getElementById('greeting'); 
+const secondMessage = document.getElementById('secondMessage'); 
+const bfForm = document.getElementById('bfForm'); 
+const extraPage = document.getElementById('extraPage');
+const bfNameDisplay = document.getElementById('bfNameDisplay');
+const continueBtn = document.getElementById('continueBtn');
+const helloText = document.getElementById('helloText'); 
+const thirdText = document.getElementById('thirdText'); 
+const thumbsButtons = document.getElementById('thumbsButtons'); 
+const btnUp = document.getElementById('btnUp'); 
+const btnDown = document.getElementById('btnDown'); 
+const body = document.body; 
+
+// First page submit 
+nameForm.addEventListener('submit', function(event){ 
+    event.preventDefault(); 
+    const nameInput = document.getElementById('name').value.trim(); 
+    if(nameInput !== ''){ 
+        userName = nameInput; 
+        nameForm.style.display = 'none'; 
+        // Second page background 
+        body.style.backgroundImage = "url('https://rukminim2.flixcart.com/image/480/640/xif0q/poster/x/v/9/medium-dudu-bubu-hd-poster-for-cute-baby-12x18-inch-2-posters-original-imahb2gzmfzgeguu.jpeg?q=90')"; 
+        body.style.backgroundSize = "cover"; 
+        body.style.backgroundPosition = "center"; 
+        greeting.style.display = 'block'; 
+        greeting.innerHTML = `${userName}, you are here to know about us right`; 
+        setTimeout(() => { 
+            secondMessage.style.display = 'block'; 
+            secondMessage.innerHTML = `That's great! Can you please tell the name of your boyfriend?`; 
+            bfForm.style.display = 'block'; 
+        }, 1500); 
+    } else { 
+        alert('Please enter a name.'); 
+    } 
+}); 
+
+// Second page submit 
+bfForm.addEventListener('submit', function(event){ 
+    event.preventDefault(); 
+    const bfInput = document.getElementById('bfName').value.trim(); 
+    if(bfInput !== ''){ 
+        bfName = bfInput; 
+        bfForm.style.display = 'none'; 
+        secondMessage.style.display = 'none'; 
+        greeting.style.display = 'none'; 
+        helloText.style.display = 'none'; 
+        
+        // Extra page with light blue background
+        body.style.background = "lightblue";
+        extraPage.style.display = 'block';
+        bfNameDisplay.textContent = bfName;
+        
+    } else { 
+        alert('Please enter your boyfriend\'s name.'); 
+    } 
+});
+
+// Continue to third page
+continueBtn.addEventListener('click', function(){ 
+    extraPage.style.display = 'none';
+    
+    // Third page background
+    body.style.backgroundImage = "url('https://ih1.redbubble.net/image.3086258378.2759/fposter,small,wall_texture,square_product,600x600.jpg')";
+    body.style.backgroundSize = "cover";
+    body.style.backgroundPosition = "center";
+    thirdText.style.display = 'block';
+    thumbsButtons.style.display = 'block';
+});
+
+// Thumbs buttons - just for show now
+btnUp.addEventListener('click', function(){
+    alert("Thank you for the thumbs up! ❤️");
+});
+
+btnDown.addEventListener('click', function(){
+    alert("Sorry to hear that! 😢");
+});
+</script> 
+</body> 
+</html>
